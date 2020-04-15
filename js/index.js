@@ -38,6 +38,8 @@ const submit = async (e) => {
     )
     .then((response) => {
       // We get here if the message was successfully posted
+       document.querySelector("#textarea").value = '';
+       document.querySelector("#userinput").value = '';
       alert("messsage sent");
       console.log(response);
     })
