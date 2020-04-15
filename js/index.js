@@ -1,4 +1,3 @@
-
 // const submit = async e => {
 //   e.preventDefault();
 //   const message = document.querySelector("#textarea").value;
@@ -23,26 +22,31 @@
 //     alert("error occured");
 //   }
 // };
-const message = document.querySelector("#textarea").value;
-const userinput = document.querySelector("#userinput").value;
-// const chat_id = 1033393090
-axios
+
+const submit = async (e) => {
+  e.preventDefault();
+  const message = document.querySelector("#textarea").value;
+  const userinput = document.querySelector("#userinput").value;
+  // const chat_id = 1033393090
+  axios
     .post(
-      'https://api.telegram.org/bot1203072006:AAHqxy8SP_RZlRjM3c2CooSjYo172lIonqY/sendMessage',
+      "https://api.telegram.org/bot1203072006:AAHqxy8SP_RZlRjM3c2CooSjYo172lIonqY/sendMessage",
       {
-        chat_id: message.chat.id,
-        text: message.text
+        chat_id: 1033393090,
+        text: message,
       }
     )
-    .then(response => {
+    .then((response) => {
       // We get here if the message was successfully posted
-      console.log('Message posted')
-      res.end('ok')
+      alert("messsage sent");
+      console.log(response);
     })
-    .catch(err => {
+    .catch((err) => {
       // ...and here if it was not
-      console.log('Error :', err)
-      res.end('Error :' + err)
+      console.log("Error :", err);
+      alert("an error occured", err);
     });
- document.querySelector("form").addEventListener("submit", submit);
-alert("Hiii there")
+};
+
+document.querySelector("form").addEventListener("submit", submit);
+  alert("Hiii there");
